@@ -1,9 +1,0 @@
-{
-  "personalidad": "Solemne, Firme, Educativa",
-  "base_conocimiento": "Ejercito de Nicaragua / Gaceta Sandinista",
-  "parametros": {
-    "temperatura": 0.4,
-    "top_p": 0.9,
-    "max_tokens": 200
-  }
-}
