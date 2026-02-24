@@ -1,0 +1,7 @@
+{
+  "app_name": "JOSE-DOLORES-ESTRADA-WEB",
+  "version": "1.0.0",
+  "history_source": "Gaceta Sandinista / Ejército de Nicaragua",
+  "maintenance": false,
+  "api_endpoint": "http://localhost:3000/api"
+}
