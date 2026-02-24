@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General José Dolores Estrada | Portal Oficial</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <style>
+        /* CSS CRÍTICO PARA INTEGRACIÓN PROFESIONAL */
+        :root {
+            --azul-patria: #0033a0;
+            --oro-honor: #d4af37;
+            --sepia-historia: #f4ece1;
+            --blanco: #ffffff;
+        }
+
+        /* Hero Portrait */
+        .hero-portrait img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--oro-honor);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        /* IA Chat Interface en Index */
+        .ia-integration {
+            background: var(--sepia-historia);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 8px solid var(--azul-patria);
+        }
+
+        .chat-container {
+            background: var(--blanco);
+            border-radius: 10px;
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .msg { padding: 10px 15px; border-radius: 10px; max-width: 85%; }
+        .msg-ia { background: #eef2ff; border-left: 4px solid var(--azul-patria); align-self: flex-start; }
+        .msg-user { background: var(--oro-honor); color: #000; align-self: flex-end; }
+
+        .chat-input-group { display: flex; gap: 10px; }
+        .chat-input-group input { flex: 1; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
+
+        /* Gallery Grid */
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .gallery-card img { width: 100%; border-radius: 8px; border-bottom: 4px solid var(--oro-honor); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">ESTRADA-WEB</a>
+            <ul class="nav-links">
+                <li><a href="biografia.html">Biografía</a></li>
+                <li><a href="batalla-san-jacinto.html">San Jacinto</a></li>
+                <li><a href="juego.html" class="nav-btn">Desafío</a></li>
+                <li><a href="login.html" class="btn-login">Ingresar</a></li>
+                <li><a href="registro.html" class="btn-registro">Unirse</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-header">
+        <div class="hero-overlay anim-heroica">
+            <div class="hero-portrait">
+                <img src="img/retrato.jpg" alt="General José Dolores Estrada">
+            </div>
+            <span class="badge">Soberanía y Dignidad Nacional</span>
+            <h1>General José Dolores Estrada Vado</h1>
+            <p>Héroe Nacional: El pueblo mismo uniformado defendiendo su autodeterminación.</p>
+            <div class="hero-actions">
+                <a href="#ia-section" class="btn-p">Consultar al General</a>
+                <a href="login.html" class="btn-s">Acceso Estudiante</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section id="ia-section" class="ia-integration anim-heroica">
+            <h2>Asistente Histórico: Consultas al General</h2>
+            <p>Basado en fuentes oficiales del Ejército y Gaceta Sandinista.</p>
+            <div class="chat-container" id="chat-box">
+                <div class="msg msg-ia">Saludos, compatriota. Soy el General Estrada. ¿Qué deseas aprender sobre nuestra lucha por la soberanía?</div>
+            </div>
+            <div class="chat-input-group">
+                <input type="text" id="user-input" placeholder="Pregunte sobre San Jacinto o el legado de dignidad...">
+                <button onclick="enviarConsulta()" class="btn-p">Consultar</button>
+            </div>
+        </section>
+
+        <section class="gallery-section anim-heroica">
+            <h2>Símbolos de la Epopeya</h2>
+            <div class="gallery-preview">
+                <div class="gallery-card"><img src="img/retrato.jpg" alt="Retrato"><p>El Héroe Nacional</p></div>
+                <div class="gallery-card"><img src="img/batalla.jpg" alt="Batalla"><p>Acción de Andrés Castro</p></div>
+                <div class="gallery-card"><img src="img/bandera.jpg" alt="Bandera"><p>Soberanía Nacional</p></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="intro-cards">
+            <article class="card">
+                <h3>Vigencia Histórica</h3>
+                <p>A 156 años de su tránsito a la inmortalidad, su legado de antifilibusterismo permanece vivo.</p>
+            </article>
+            <article class="card">
+                <h3>Homenaje en Nandaime</h3>
+                <p>Cada 16 de marzo, su cuna natal rinde honores a la vida inmortal del General.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 ESTRADA-WEB | Fuentes: Ejército de Nicaragua, Gaceta Sandinista, El 19 Digital.</p>
+    </footer>
+
+    <script>
+        // Función de IA simplificada para que funcione de inmediato
+        async function enviarConsulta() {
+            const input = document.getElementById('user-input');
+            const box = document.getElementById('chat-box');
+            if(!input.value) return;
+
+            // Mensaje Usuario
+            box.innerHTML += `<div class="msg msg-user">${input.value}</div>`;
+            const pregunta = input.value.toLowerCase();
+            input.value = '';
+
+            // Lógica de Respuesta Basada en tus fuentes
+            let respuesta = "Esa interrogante es clave para nuestra formación. Te sugiero revisar los módulos de la Gaceta Sandinista.";
+            
+            if(pregunta.includes("san jacinto")) respuesta = "El 14 de septiembre de 1856 derrotamos a los filibusteros con 160 patriotas.";
+            if(pregunta.includes("andres castro")) respuesta = "Andrés Castro es símbolo de decoro nacional; con una piedra defendió la patria.";
+            if(pregunta.includes("nandaime")) respuesta = "Mi cuna natal donde se me rinden honores cada 16 de marzo.";
+
+            setTimeout(() => {
+                box.innerHTML += `<div class="msg msg-ia">${respuesta}</div>`;
+                box.scrollTop = box.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
